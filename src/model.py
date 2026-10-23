@@ -20,6 +20,18 @@ def train_model(shots):
     model.fit(X_train, y_train)
     return model, X_test, y_test
 
+def load_lautaro_with_xg():
+    """Train on the other players, tehn add my_xg to Lautaro's shots."""
+    league_raw = pd.read_pickle("data/shots_league.pkl")
+    league_shots, _ = prepare_shots(league_raw)
+    others=league_shots[league_shots["player_id"].astype(str)!=LAUTARO_ID]
+    model, _, _ = train_model(others)
+
+    lautaro_raw=pd.read_pickle("data/shots_lautaro.pkl")
+    lautaro, penalties =prepare_shots(lautaro_raw)
+    lautaro["my_xg"]=model.predict_proba(lautaro[FEATURES])[:, 1]
+    return lautaro, penalties
+
 if __name__ =="__main__":
     league_raw=pd.read_pickle("data/shots_league.pkl")
     league_shots, _ =prepare_shots(league_raw)
