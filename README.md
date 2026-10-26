@@ -2,7 +2,10 @@
 
 Shot map, expected goals (xG) model and Streamlit dash board for Lautaro Martínez, built with Python on Serie A data from 2018/19 to 2025/26 (his years Inter, excluding the current season, 2026/27).
 
-**Live app:** coming soon
+**Live app:** https://lautaro-xg.streamlit.app/
+
+![App](assets/app.png)
+![App](assets/app2.png)
 
 ![Shot map](assets/shotmap.png)
 
