@@ -1,6 +1,6 @@
+import pandas as pd
 import streamlit as st
 
-from src.model import load_lautaro_with_xg
 from src.plots import shot_map
 
 st.set_page_config(page_title="Lautaro xG explorer", layout="wide")
@@ -8,7 +8,10 @@ st.title("Lautaro Martinez in Serie A - shot explorer")
 
 @st.cache_data
 def load_data():
-    return load_lautaro_with_xg()
+    df=pd.read_csv("app_data/lautaro_shots.csv")
+    shots=df[df["situation"]!="Penalty"]
+    penalties=df[df["situation"]=="Penalty"]
+    return shots, penalties
 
 shots, penalties = load_data()
 
