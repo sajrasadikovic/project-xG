@@ -24,12 +24,13 @@ if __name__=="__main__":
     print("\nOther players:")
     print(others[["distance", "angle", "xG"]].describe().round(3))
     print("\nLautaro:")
-    print(others[["distance", "angle", "xG"]].describe().round(3))
-    print("\nGoal share others:", round(others["is_goal"].mean(), 3))
+    print(lautaro[["distance", "angle", "xG"]].describe().round(3))
+    print("\nGoal share others:", round(others["is_goal"].mean(), 3),
+          "| Lautaro:", round(lautaro["is_goal"].mean(), 3))
 
     fig, ax = plt.subplots(figsize=(6, 4))
     ax.hist(others["distance"], bins=30, density=True, alpha=0.6, color=GREY, label="Other players")
-    ax.hist(lautaro["distance"], bins=30, density=True, alpha=0.6, color=BLUE, label="Other players")
+    ax.hist(lautaro["distance"], bins=30, density=True, alpha=0.6, color=BLUE, label="Lautaro")
     ax.set_xlabel("Distance from goal centre (m)")
     ax.set_ylabel("Density")
     ax.set_title("Distribution of shot distance")
@@ -52,6 +53,7 @@ if __name__=="__main__":
     ax.set_xticklabels(rate_o.index.astype(str), rotation=30)
     ax.set_xlabel("Distance (m)")
     ax.set_ylabel("Share of shots that are goals")
+    ax.set_title("Goal rate by distance")
     ax.legend()
     save(fig, "02_goal_rate_by_distance")
 
