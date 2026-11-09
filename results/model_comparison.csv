@@ -1,0 +1,5 @@
+model,AUC train,AUC test,AUC CV mean,AUC std mean,log loss train,log loss test,Brier test
+Logistic regression (baseline),0.749,0.767,0.749,0.006,0.306,0.3,0.086
+Random forest,0.854,0.749,0.736,0.01,0.266,0.305,0.087
+Gradient boosting,0.771,0.766,0.751,0.005,0.296,0.298,0.086
+Understat xG (reference),,0.795,,,,0.28,0.08
