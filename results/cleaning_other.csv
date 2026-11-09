@@ -1,0 +1,8 @@
+step,rows
+Rows in raw data,35154
+Duplicate shots (same id),0
+Rows with missing key values,0
+Rows with unrealistic values,0
+Own goals (removed),11
+Penalties (analysed separately),731
+Rows used for the model,34412
